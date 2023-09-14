@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Supermarket;
+package item;
+import item.view.ItemView;
+import Customer.view.CustomerView;
 
 /**
  *
@@ -14,7 +17,8 @@ public class SuperMarket {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+   //new ItemView().setVisible(true);
+     new CustomerView().setVisible(true);
     }
     
 }
