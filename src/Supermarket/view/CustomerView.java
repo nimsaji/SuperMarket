@@ -62,9 +62,9 @@ public class CustomerView extends javax.swing.JFrame {
         custZipcodeText = new javax.swing.JTextField();
         custLastnameText = new javax.swing.JTextField();
         custGenderText = new javax.swing.JTextField();
-        searchButton = new javax.swing.JButton();
-        getallButton1 = new javax.swing.JButton();
-        addButton2 = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
         TablePanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
@@ -191,27 +191,27 @@ public class CustomerView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        searchButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        searchButton.setText("Search");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
             }
         });
 
-        getallButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        getallButton1.setText("Get All");
-        getallButton1.addActionListener(new java.awt.event.ActionListener() {
+        updateButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                getallButton1ActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
 
-        addButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        addButton2.setText("Save");
-        addButton2.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButton2ActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
@@ -226,6 +226,11 @@ public class CustomerView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        customerTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(customerTable);
 
         javax.swing.GroupLayout TablePanelLayout = new javax.swing.GroupLayout(TablePanel);
@@ -259,12 +264,12 @@ public class CustomerView extends javax.swing.JFrame {
                     .addComponent(formPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(basePanelLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(getallButton1)
-                .addGap(56, 56, 56)
-                .addComponent(searchButton)
+                .addGap(377, 377, 377)
+                .addComponent(updateButton)
+                .addGap(79, 79, 79)
+                .addComponent(deleteButton)
                 .addGap(77, 77, 77)
-                .addComponent(addButton2)
+                .addComponent(saveButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         basePanelLayout.setVerticalGroup(
@@ -275,9 +280,9 @@ public class CustomerView extends javax.swing.JFrame {
                 .addComponent(formPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(basePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(getallButton1)
-                    .addComponent(searchButton)
-                    .addComponent(addButton2))
+                    .addComponent(updateButton)
+                    .addComponent(deleteButton)
+                    .addComponent(saveButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -301,25 +306,28 @@ public class CustomerView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchButtonActionPerformed
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        deleteCustomer();
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void getallButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getallButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_getallButton1ActionPerformed
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        updateCustomer();
+    }//GEN-LAST:event_updateButtonActionPerformed
 
-    private void addButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton2ActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
         saveCustomer();
-    }//GEN-LAST:event_addButton2ActionPerformed
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void customerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerTableMouseClicked
+         searchCustomer();
+    }//GEN-LAST:event_customerTableMouseClicked
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Header;
     private javax.swing.JPanel TablePanel;
-    private javax.swing.JButton addButton2;
     private javax.swing.JPanel basePanel;
     private javax.swing.JLabel custAddressLabel;
     private javax.swing.JTextField custAddressText;
@@ -340,11 +348,12 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JLabel custZipcodeLabel;
     private javax.swing.JTextField custZipcodeText;
     private javax.swing.JTable customerTable;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JPanel formPanel;
-    private javax.swing.JButton getallButton1;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton searchButton;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 
     private void saveCustomer(){
@@ -353,14 +362,38 @@ public class CustomerView extends javax.swing.JFrame {
         try {
             String resp=customercontroller.saveCustomer(cm);
             JOptionPane.showMessageDialog(this,resp);
-            
+            clear();
             loadAllCustomers();
         } catch (SQLException ex) {
             Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this,ex.getMessage());
         }
     }
-
+private void deleteCustomer() {
+        CustomerModel cm = new CustomerModel(custIdText.getText(),(String)custTitlebox.getSelectedItem(),custFirstNameText.getText(), custLastNameText.getText(),custAddressText.getText(),custziptext.getText(),(int)Double.parseDouble(custAge.getText()),mobileText.getText(),genderText.getText());
+        try {
+            String resp=customercontroller.deleteCustomer(cm);
+            JOptionPane.showMessageDialog(this,resp);
+             clear();
+            loadAllCustomers();
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this,ex.getMessage());
+        }
+}
+    
+        private void updateCustomer() {
+        CustomerModel cm = new CustomerModel(custIdText.getText(),(String)custTitlebox.getSelectedItem(),custFirstNameText.getText(), custLastNameText.getText(),custAddressText.getText(),custziptext.getText(),(int)Double.parseDouble(custAge.getText()),mobileText.getText(),genderText.getText());
+        try {
+            String resp=customercontroller.updateCustomer(cm);
+            JOptionPane.showMessageDialog(this,resp);
+            clear();
+            loadAllCustomers();
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this,ex.getMessage());
+        }
+    }
  private void clear() {
        custIdText.setText("");
      custFirstNameText.setText("");
@@ -373,3 +406,50 @@ public class CustomerView extends javax.swing.JFrame {
         
         
  }
+  private void loadAllCustomers(){
+    
+        try{
+        String [] collumns ={"ID","Title","FirstName","LastName","Address","Zip","Age","Mobile","Gender"};
+    DefaultTableModel dtm = new DefaultTableModel(collumns,0){
+  @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            customerTable.setModel(dtm);
+      
+            ArrayList<CustomerModel> cm = CustomerController.getAllCustomers();
+
+            for (CustomerModel customer : cm) {
+                Object[] rowData = {customer.getId(),customer.getTitle(), customer.getFirstName() , customer.getLastName(),customer.getAddress(),customer.getZipcode(),customer.getAge(),customer.getMobile(),customer.getGender()};
+                dtm.addRow(rowData);
+            }
+        }catch (SQLException ex) {
+           Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        
+}  
+ }
+ 
+private void searchCustomer(){
+        try {
+            String id=customerTable.getValueAt(customerTable.getSelectedRow(), 0).toString();
+            CustomerModel customermodel=customercontroller.searchCustomer(id);
+            if(customermodel!=null){
+                custIdText.setText(customermodel.getId());
+                custTitlebox.setToolTipText(customermodel.getTitle());
+                custFirstNameText.setText(customermodel.getFirstName());
+                custLastNameText.setText(customermodel.getLastName());
+                custAddressText.setText(customermodel.getAddress());
+                custziptext.setText(customermodel.getZipcode());
+                custAge.setText(Integer.toString(customermodel.getAge()));
+                mobileText.setText(customermodel.getMobile());
+                genderText.setText(customermodel.getGender());
+            }else{
+                JOptionPane.showMessageDialog(this, "Customer Not Found");
+                
+            }  } catch (SQLException ex) {
+            Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ }
+}
