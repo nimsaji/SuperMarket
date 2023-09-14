@@ -273,6 +273,7 @@ public class CustomerView extends javax.swing.JFrame {
 
     private void addButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton2ActionPerformed
         // TODO add your handling code here:
+        saveCustomer();
     }//GEN-LAST:event_addButton2ActionPerformed
 
     
@@ -304,4 +305,18 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JPanel headerPanel;
     private javax.swing.JButton searchButton;
     // End of variables declaration//GEN-END:variables
+
+    private void saveCustomer(){
+        CustomerModel cm;
+        cm = new CustomerModel(custIdText.getText(),(String)custTitlebox.getSelectedItem(),custFirstNameText.getText(), custLastNameText.getText(),custAddressText.getText(),custziptext.getText(),(int)Double.parseDouble(custAgeText.getText()),mobileText.getText(),genderText.getText());
+        try {
+            String resp=customercontroller.saveCustomer(cm);
+            JOptionPane.showMessageDialog(this,resp);
+            
+            loadAllCustomers();
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this,ex.getMessage());
+        }
+    }
 }
